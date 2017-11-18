@@ -4,21 +4,7 @@ void hello_world(void) {
     printf("Hello, World!\n");
 }
 //Funzioni su FILE [FILE]
-FILE *FILE_apri_file(int MAX_FILENAME_SIZE, char *TYPE) {
-    FILE *fp=NULL;
-    int TYPE_ERR=strcmp("w",TYPE)||strcmp("r",TYPE)||strcmp("rw",TYPE);
-    assert(TYPE_ERR);
-    char nomefile[MAX_FILENAME_SIZE];
-    do{
-        printf("Inserire il nome del file...\n");
-        scanf("%s",nomefile);
-        fp=fopen(nomefile,TYPE);
-        if (fp==NULL){
-            printf("File non aperto/creato correttamente... Riprovare");
-        }
-    }   while (fp==NULL);
-    return fp;
-}
+
 int FILE_leggi_file_caratteri(FILE *fp, int r, int c, char mat[MAX_MAT_R][MAX_MAT_C]) {
     assert(fp!=NULL); assert(r<MAX_MAT_R+1); assert(c<MAX_MAT_C+1);
     char ch; //Carattere di debug

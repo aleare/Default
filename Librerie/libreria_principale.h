@@ -8,6 +8,15 @@
 #define MAX_STR 25
 #define DEBUG //Debug
 
+
+#define forever for(;;)
+#define error(...) fprintf(stderr,"ERRORE: %s\nAlla riga %s in %s",__VA_ARGS__,__LINE__,__FILE__)
+#ifdef DEBUG
+#define debug(...) fprintf(stderr,"[%d] in %s: %s\n", __LINE__, __FILE__,__VA_ARGS__)
+#else
+#define debug(...)
+#endif
+
 //Include Utilizzati
 #include <stdio.h>
 #include <string.h>
@@ -19,7 +28,7 @@ void hello_world();
 
 
 //Funzioni su FILE [FILE]
-FILE *FILE_apri_file(int MAX_FILENAME_SIZE, char *TYPE);
+
 int FILE_leggi_file_caratteri(FILE *fp, int r, int c, char mat[MAX_MAT_R][MAX_MAT_C]);
 int FILE_leggi_file_float(FILE *fp, int r, int c, float mat[MAX_MAT_R][MAX_MAT_C]);
 int FILE_leggi_file_dec(FILE *fp, int r, int c, int mat[MAX_MAT_R][MAX_MAT_C]);
@@ -56,9 +65,10 @@ int selezione_stringa_7(char string1[], char string2[], char string3[], char str
 int str_toalnum(char *s); //Converte s a soli caratteri alfanumerici... Se s è già alnum torna 0, altrimenti torna la grandezza della nuova stringa
 int str_toupper(char *s); //Converte s a soli caratteri minuscoli... Se s è già minuscola torna 0, altrimenti torna la grandezza della nuova stringa
 int str_tolower(char *s); //Converte s a soli caratteri maiuscoli... Se s è già maiuscola torna 0, altrimenti torna la grandezza della nuova stringa
-#endif
+
 
 //Funzioni di varie []
 
 int stampa_matrice_dec(int r,int c,const int mat[MAX_MAT_R][MAX_MAT_C]);
 int somma_matrice_dec(int rx, int ry, int cx,int cy,int  mat[MAX_MAT_R][MAX_MAT_C]);
+#endif
